@@ -25,11 +25,11 @@ this.state = {
 
 ### Mounting = Created/inserted into DOM
 
-1. componentWillMount() =  called just `before` a component mounts on the DOM or the render.
+1. componentWillMount() =  The first lifecycle to execute, called just `before` a component mounts on the DOM or the render.
 
 ```
 componentWillMount() {
-    console.log('Waiting for component to mount then componentDidMount will execute.')
+    console.log('Waiting for component to mount then componentDidMount is next to call.')
 }
 ```
 
@@ -37,10 +37,9 @@ componentWillMount() {
 
 ```
 componentDidMount(){
-	//Called the api once
 	console.log('componentWillMount was done, then i will call getList() once')
 
-	//The api function to called once!
+	//The api function to call once!
 	this.getList
 }
 
