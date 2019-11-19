@@ -146,7 +146,7 @@ class Language extends Component {
   //componentWillUpdate was renamed to => UNSAFE_componentWillUpdate(){}
   UNSAFE_componentWillUpdate(nextProps,nextState){
     console.log("1.) componentWillUpdate" )
-    this.setState({favorite: 'C++'}) //Since componentWillUpdate was only called ONCE, it will not set C++ in state
+    this.setState({favorite: 'C++'})
   }
 
   componentDidUpdate(prevProps,prevState){
