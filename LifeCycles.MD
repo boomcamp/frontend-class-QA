@@ -104,15 +104,14 @@ import React, { Component, Fragment } from 'react';
 class Language extends Component {
 
   state = {
-    favorite: "Angular"
+    favorite: "Angular" //But my favorite language is Reactjs :(
   };
 
   //componentWillMount, New implementation
   //constructor(){
   //  super();
   //  this.state = {
-  //      favorite: "React",
-  //      task : [{ componentWillMount : "Done"}]
+  //      favorite: "Angular"
   //  };
   //}
 
