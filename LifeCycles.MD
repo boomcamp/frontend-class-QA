@@ -135,7 +135,7 @@ class Language extends Component {
     console.log(this.state.favorite +" !== "+ nextState.favorite,  (this.state.favorite !== nextState.favorite))
 
     //if favorite !== Reactjs, then re-render Language!
-    return this.state.favorite !== nextState.favorite || this.state.favorite === ''
+    return this.state.favorite !== nextState.favorite
 
     //So, i need to call this two methods to read other languages
     //componentWillUpdate(nextProps,nextState)
