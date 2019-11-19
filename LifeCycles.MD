@@ -57,7 +57,7 @@ getList=()=>{
 ```
 shouldComponentUpdate(nextProps, nextState){
 
-    //if list[] is still, empty then re-render the component
+    //if true then re-render the component
     return this.state.list !== nextState.list //returns true or false
 
     //So, i need to call this two methods
