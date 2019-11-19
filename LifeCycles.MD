@@ -94,10 +94,3 @@ componentWillUnmount(){
 	//So this is the last part of lifecycles, you can add your logic here to destruct DOM.
 }
 ```
-
-
-
-
-### Resource
-
-[Lifecycles](https://www.freecodecamp.org/news/how-to-understand-a-components-lifecycle-methods-in-reactjs-e1a609840630/)
