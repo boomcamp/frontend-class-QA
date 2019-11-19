@@ -29,7 +29,7 @@ this.state = {
 
 ```
 componentWillMount() {
-    console.log('Waiting for component to mount then next is to call api')
+    console.log('Waiting for component to mount then componentDidMount will execute.')
 }
 ```
 
@@ -38,7 +38,7 @@ componentWillMount() {
 ```
 componentDidMount(){
 	//Called the api once
-	console.log('componentWillMount was executed then call getList() once')
+	console.log('componentWillMount was done, then i will call getList() once')
 
 	//The api function to called once!
 	this.getList
@@ -61,7 +61,7 @@ shouldComponentUpdate(nextProps, nextState){
 	//if list[] is still, empty then re-render component
     return this.state.list !== nextState.list //returns true or false
 
-    //So, i need to call
+    //So, i need to call this two methods
     //componentWillUpdate(nextProps,nextState)
     //ComponentDidUpdate(prevProps,prevState)
 }
