@@ -1,4 +1,4 @@
-What is Mounting?
+## What is Mounting?
 
 is the process of outputting the `virtual` representation of a component(Other terms: [Virtual DOM](https://stackoverflow.com/questions/21965738/what-is-virtual-dom)) into the final UI representation
 
