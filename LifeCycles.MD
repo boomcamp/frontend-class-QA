@@ -18,11 +18,10 @@ is the process of outputting the `virtual` representation of a component(Other t
 
 ```
 this.state = {
-   date : new Date(),
-   clickedStatus: false,
    list:[]
- };
+};
 ```
+
 
 ### Mounting = Created/inserted into DOM
 
@@ -73,19 +72,28 @@ shouldComponentUpdate(nextProps, nextState){
 ```
 componentWillUpdate(nextProps, nextState) {
    console.log('I was called once by shouldComponentUpdate!');
+
+   //So, i can perform any logic here before component re-renders :)
 }
 ```
 
 3. ComponentDidUpdate(prevProps,prevState) = called just `after the re-rendering of the component`. After the new (updated) component gets updated on the DOM.
 
 ```
-ComponentDidUpdate(prevProps,prevState){
-	console.log('I was called after the dom updated and re-rendered');
+componentDidUpdate(prevProps,prevState){
+	console.log('I was called after the dom updated and component rendered');
 }
 ```
 
-### Unmounting
+### Unmounting = Remove into DOM
+
 - componentWillUnmount() = The end of the component’s lifecycle.
+
+```
+componentWillUnmount(){
+	//So this is the last part of lifecycles, you can add your logic here to destruct DOM.
+}
+```
 
 
 
