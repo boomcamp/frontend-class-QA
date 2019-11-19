@@ -93,3 +93,112 @@ componentWillUnmount(){
 	//So this is the last part of lifecycles, you can add your logic here to destruct DOM.
 }
 ```
+
+
+
+### Demo Snippet
+
+```
+import React, { Component, Fragment } from 'react';
+
+class Language extends Component {
+
+  state = {
+    favorite: "Angular"
+  };
+
+  //componentWillMount, New implementation
+  //constructor(){
+  //  super();
+  //  this.state = {
+  //      favorite: "React",
+  //      task : [{ componentWillMount : "Done"}]
+  //  };
+  //}
+
+  //componentWillMount was renamed to => UNSAFE_componentWillMount(){}
+  UNSAFE_componentWillMount() {
+    console.log("1.) componentWillMount")
+    this.setState({favorite: "PHP"})
+  }
+  
+  componentDidMount() {
+    console.log("2.) componentDidMount")
+    this.setState({favorite: 'Java'})
+  }
+
+  /**
+   * So i decide to reupdate the component if my favorite programming language is not equal to `Reactjs`
+   */
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("###### SHOULD COMPONENT UPDATE ? #######")
+    console.log(this.state.favorite +" !== "+ nextState.favorite,  (this.state.favorite !== nextState.favorite))
+
+    //if favorite !== Reactjs, then re-render Language!
+    return this.state.favorite !== nextState.favorite || this.state.favorite === ''
+
+    //So, i need to call this two methods to read other languages
+    //componentWillUpdate(nextProps,nextState)
+    //ComponentDidUpdate(prevProps,prevState)
+  }
+
+  //componentWillUpdate was renamed to => UNSAFE_componentWillUpdate(){}
+  UNSAFE_componentWillUpdate(nextProps,nextState){
+    console.log("1.) componentWillUpdate" )
+    this.setState({favorite: 'C++'}) //Since componentWillUpdate was only called ONCE, it will not set C++ in state
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    console.log("2.) componentDidUpdate")
+    this.setState({favorite: 'Reactjs'})
+  }
+
+  componentWillUnmount(){
+    console.log("Done!")
+  }
+
+  render() {
+    console.log(this.state.favorite)
+
+    return (<Fragment>Favorite : {this.state.favorite}</Fragment>);
+  }
+}
+
+export default Language;
+```
+
+Output :
+
+```
+1.) componentWillMount
+PHP
+2.) componentDidMount
+
+###### SHOULD COMPONENT UPDATE ? #######
+PHP !== Java true
+1.) componentWillUpdate
+Java
+2.) componentDidUpdate
+
+
+###### SHOULD COMPONENT UPDATE ? #######
+Java !== Reactjs true
+1.) componentWillUpdate
+Reactjs
+2.) componentDidUpdate
+
+
+###### SHOULD COMPONENT UPDATE ? #######
+Reactjs !== Reactjs false
+```
+
+
+```
+Favorite : Reactjs
+```
+
+
+
+
+
