@@ -53,12 +53,12 @@ getList=()=>{
 
 ### Updating = Re-render a component
 
-1. shouldComponentUpdate() = determines whether the `component should be updated or not`, default returns `true`, you can `re-render`.
+1. shouldComponentUpdate() = determines whether the `component should be updated/re-render or not`, returns `boolean` the default is `true`, you can `re-render` a component.
 
 ```
 shouldComponentUpdate(nextProps, nextState){
 
-	//if list[] is still, empty then re-render component
+    //if list[] is still, empty then re-render the component
     return this.state.list !== nextState.list //returns true or false
 
     //So, i need to call this two methods
@@ -67,7 +67,7 @@ shouldComponentUpdate(nextProps, nextState){
 }
 ```
 
-2. componentWillUpdate(nextProps,nextState) =  called once after the ‘shouldComponentUpdate’, can perform any logic before re-rendering
+2. componentWillUpdate(nextProps,nextState) =  called only `once` and `after the shouldComponentUpdate executed`, you can perform any logic before re-rendering.
 
 ```
 componentWillUpdate(nextProps, nextState) {
@@ -81,7 +81,7 @@ componentWillUpdate(nextProps, nextState) {
 
 ```
 componentDidUpdate(prevProps,prevState){
-	console.log('I was called after the dom updated and component rendered');
+	console.log('I was called after the DOM are updated and component rendered');
 }
 ```
 
